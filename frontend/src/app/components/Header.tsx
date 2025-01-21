@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useContext, createContext } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { disablePageScroll, enablePageScroll } from "scroll-lock";
