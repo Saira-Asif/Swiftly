@@ -1,0 +1,7 @@
+Test Case ID	,Test Case Description	,Test Steps,Expected Result,Actual Result,Status,Severity Level,Remarks
+TC001,Check Sign In/Up Functionality,"Click the ""Sign In/Sign Up"" button.",The user is successfully signed in/up and redirected to the dashboard or homepage.,The user was successfully signed in.,Pass,Low,Functionality working as expected.
+TC002,Verify mobile responsiveness,Resize the browser window and check how the layout adjusts.,The layout should adapt properly to fit the screen size.,The layout adjusts correctly for different screen sizes.,Pass,Medium,Test completed successfully
+TC003,Validate product search functionality,Input a product name in the search bar and press the search button.,The system should display relevant products based on the search query., Relevant products were displayed as expected.,Pass,High,Search feature is working correctly.
+TC004,Check fallback UI for an empty cart,"Do not add any items to the cart, then navigate to the cart page.",A message stating “No items in cart” should be displayed.,"The message “No items in cart” was displayed correctly.
+",Pass,Low,The fallback UI is functioning as intended.
+TC005,Test compatibility across browsers,"Open the page in Chrome, Firefox, Safari, and Edge, and verify the layout consistency",The page layout should appear uniform across all major browsers.,Layout displayed consistently across all tested browsers.,Pass,Medium,Successfully validated across multiple browsers.
