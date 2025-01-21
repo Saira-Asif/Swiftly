@@ -13,14 +13,14 @@ import {
 } from "@clerk/nextjs";
 
 // Create a UserContext to simulate user address and state
-const UserContext = createContext({
-  userAddress: null,
-  setUserState: () => {},
-});
+// const UserContext = createContext({
+//   userAddress: null,
+//   setUserState: () => {},
+// });
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { userAddress, setUserState } = useContext(UserContext);
+  // const { userAddress, setUserState } = useContext(UserContext);
 
   // Toggle Menu and Page Scroll
   const toggleMenu = () => {
