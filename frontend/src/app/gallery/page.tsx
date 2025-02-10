@@ -15,17 +15,27 @@ interface Product {
   description: string;
 }
 
-function GalleryContent() {
+// Create a wrapper component for handling `useSearchParams`
+function SearchParamsWrapper({ setPrecinct }: { setPrecinct: (value: string | null) => void }) {
   const searchParams = useSearchParams();
   const urlPrecinct = searchParams.get("precinct");
+
+  useEffect(() => {
+    setPrecinct(urlPrecinct);
+  }, [urlPrecinct, setPrecinct]);
+
+  return null; // No UI elements needed
+}
+
+function GalleryContent() {
   const { user } = useUser(); // Get user from Clerk
 
   const [products, setProducts] = useState<Product[]>([]);
-  const [precinct, setPrecinct] = useState<string | null>(urlPrecinct);
+  const [precinct, setPrecinct] = useState<string | null>(null);
 
   // Fetch saved precinct from the database
   useEffect(() => {
-    if (!urlPrecinct && user) {
+    if (!precinct && user) {
       fetch(`/api/get-user-data?userId=${user.id}`)
         .then((res) => res.json())
         .then((data) => {
@@ -35,7 +45,7 @@ function GalleryContent() {
         })
         .catch((error) => console.error("Error fetching user data:", error));
     }
-  }, [user, urlPrecinct]);
+  }, [user, precinct]);
 
   // Fetch products based on precinct
   useEffect(() => {
@@ -58,10 +68,14 @@ function GalleryContent() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
+      <Suspense fallback={<div>Loading...</div>}>
+        <SearchParamsWrapper setPrecinct={setPrecinct} />
+      </Suspense>
+
       <h1 className="text-2xl font-bold mb-4">
         {precinct ? `Gallery for ${precinct}` : "No Precinct Selected"}
       </h1>
-  
+
       {products.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {products.map((product) => (
@@ -89,8 +103,7 @@ function GalleryContent() {
           ))}
         </div>
       ) : (
-        // Ensure the button is centered properly
-        <div className="flex flex-col items-center justify-center ">
+        <div className="flex flex-col items-center justify-center">
           <button
             className="mt-4 bg-green-600 text-white px-4 py-2 hover:bg-green-800 rounded-md"
             onClick={() => (window.location.href = "/")}
@@ -103,10 +116,4 @@ function GalleryContent() {
   );
 }
 
-export default function Gallery(){
-  return (
-<Suspense fallback={<div>Loading...</div>}>
-  <GalleryContent/>
-</Suspense>
-)
-}
+export default GalleryContent;
