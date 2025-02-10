@@ -20,7 +20,7 @@ export default function ComingSoon() {
       <div className="relative z-10 flex flex-col items-center space-y-6">
         <h1 className="text-4xl sm:text-6xl font-bold">Coming Soon</h1>
         <p className="text-lg sm:text-xl text-gray-300 max-w-2xl">
-          We're working on something amazing! Stay tuned for updates.
+          We&apos;re working on something amazing! Stay tuned for updates.
         </p>
 
         <Link href="/">

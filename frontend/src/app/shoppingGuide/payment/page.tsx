@@ -31,9 +31,9 @@ const PaymentPage = () => {
           <li>For COD, pay the rider upon receiving your order.</li>
           <li>For digital wallets, scan the QR code or enter your details.</li>
           <li>For card payments, enter your card details securely.</li>
-          <li>Once payment is confirmed, you'll receive an order confirmation.</li>
+          <li>Once payment is confirmed, you&apos;ll receive an order confirmation.</li>
         </ul>
-      </section>
+      </section> 
       
       {/* Refunds & Failed Transactions */}
       <section className="mb-6">

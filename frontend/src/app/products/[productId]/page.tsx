@@ -3,6 +3,7 @@
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { client } from "../../../../sanityClient"; 
+import Image from "next/image";
 
 interface Product {
   _id: string;
@@ -63,7 +64,7 @@ console.log("Dynamic route productId:", productId);
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
       <div className="max-w-2xl p-4 border rounded-lg shadow-md bg-white">
-        <img
+        <Image
           src={product.imageUrl}
           alt={product.name}
           className="w-full h-64 object-cover rounded-md mb-4"

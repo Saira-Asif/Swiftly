@@ -16,7 +16,7 @@ const FAQPage = () => {
       <p className="mb-4">We accept <strong>Cash on Delivery (COD)</strong>, <strong>JazzCash</strong>, <strong>EasyPaisa</strong>, and <strong>bank transfers</strong>.</p>
       
       <h2 className="text-2xl font-semibold mt-6">Can I cancel my order?</h2>
-      <p className="mb-4">Yes, you can cancel your order <strong>before the rider picks it up</strong>. Once it's on the way, cancellations are not allowed.</p>
+      <p className="mb-4">Yes, you can cancel your order <strong>before the rider picks it up</strong>. Once it&apos;s on the way, cancellations are not allowed.</p>
       
       <h2 className="text-2xl font-semibold mt-6">What if I receive the wrong or damaged items?</h2>
       <p className="mb-4">You can request a return or refund as per our Return Policy.</p>

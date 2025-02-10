@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { client } from "../../../sanityClient";
 import { useUser } from "@clerk/clerk-react";
+import Image from "next/image";
 
 interface Product {
   _id: string;
@@ -68,7 +69,7 @@ export default function Gallery() {
               key={product._id}
               className="p-4 border rounded-lg shadow-md bg-white"
             >
-              <img
+              <Image
                 src={product.imageUrl}
                 alt={product.name}
                 className="w-full h-40 object-cover rounded-md mb-2"

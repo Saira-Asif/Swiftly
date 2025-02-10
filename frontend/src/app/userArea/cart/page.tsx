@@ -1,9 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
-
+interface CartItems {
+  name: string;
+  price: number;
+}
 const Cart = () => {
-  const [cartItems, setCartItems] = useState<any[]>([]);
+  const [cartItems, setCartItems] = useState<CartItems[]>([]);
 
   useEffect(() => {if (typeof window !== "undefined") {
     // Ensure code runs only in the browser

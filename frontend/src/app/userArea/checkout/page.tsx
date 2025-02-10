@@ -3,11 +3,18 @@
 import { useEffect, useState } from "react";
 import { useUser } from "@clerk/nextjs";
 import { fetchCustomerData } from "../../../../sanityClient";
+interface CustomerData {
+address: string;
+}
+interface CartItems {
+name: string;
+price: number;
+}
 
 const Checkout = () => {
   const { user, isSignedIn } = useUser();
-  const [customerData, setCustomerData] = useState<any>(null);
-  const [cartItems, setCartItems] = useState<any[]>([]);
+  const [customerData, setCustomerData] = useState<CustomerData | null>(null);
+  const [cartItems, setCartItems] = useState<CartItems[]>([]);
 
   useEffect(() => {
     if (isSignedIn && user?.id) {

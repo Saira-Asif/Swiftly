@@ -3,14 +3,24 @@
 import { useEffect, useState } from "react";
 import { useUser } from "@clerk/nextjs";
 import { fetchCustomerData } from "../../../../sanityClient"; // Function to fetch customer data from Sanity
-
+interface Order {
+  _id: string;
+  status: string;
+}
+interface CustomerData {
+  name:string;
+  email:string;
+  phone:number;
+  address: string;
+  orders?: Order[];
+}
 const MyAccount = () => {
   const { user, isSignedIn } = useUser();
-  const [customerData, setCustomerData] = useState<any>(null);
+  const [customerData, setCustomerData] = useState<CustomerData | null>(null);
 
   useEffect(() => {
     if (isSignedIn && user?.id) {
-      fetchCustomerData(user.id).then((data) => setCustomerData(data));
+      fetchCustomerData(user.id).then((data: CustomerData) => setCustomerData(data));
     }
   }, [user, isSignedIn]);
 
@@ -28,7 +38,7 @@ const MyAccount = () => {
         <p><strong>Address:</strong> {customerData.address}</p>
         <h2 className="mt-4 text-xl font-semibold">Orders:</h2>
         <ul className="list-disc list-inside">
-          {customerData.orders?.map((order: any) => (
+          {customerData.orders?.map((order: Order) => (
             <li key={order._id}>Order ID: {order._id} - Status: {order.status}</li>
           ))}
         </ul>
