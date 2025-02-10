@@ -2,7 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { client } from "../../../sanityClient";
 import { useUser } from "@clerk/clerk-react";
 import Image from "next/image";
@@ -15,7 +15,7 @@ interface Product {
   description: string;
 }
 
-export default function Gallery() {
+function GalleryContent() {
   const searchParams = useSearchParams();
   const urlPrecinct = searchParams.get("precinct");
   const { user } = useUser(); // Get user from Clerk
@@ -101,4 +101,10 @@ export default function Gallery() {
       )}
     </div>
   );
+}
+
+export default function Gallery(){
+<Suspense fallback={<div>Loading...</div>}>
+  <GalleryContent/>
+</Suspense>
 }
