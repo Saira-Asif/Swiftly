@@ -12,15 +12,8 @@ import {
   SignedOut,
 } from "@clerk/nextjs";
 
-// Create a UserContext to simulate user address and state
-// const UserContext = createContext({
-//   userAddress: null,
-//   setUserState: () => {},
-// });
-
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  // const { userAddress, setUserState } = useContext(UserContext);
 
   // Toggle Menu and Page Scroll
   const toggleMenu = () => {
@@ -35,6 +28,7 @@ const Header = () => {
 
   // Close Menu and Enable Scroll
   const closeMenu = () => {
+    if (!isMenuOpen) return;
     setIsMenuOpen(false);
     enablePageScroll();
   };
@@ -91,20 +85,20 @@ const Header = () => {
             </SignUpButton>
           </SignedOut>
           <SignedIn>
-          <Link href="/cart">
-            <div
-              className="w-12 h-12 bg-emerald-500 rounded-full flex items-center justify-center shadow-md hover:shadow-lg hover:translate-y-[-2px] transition-transform duration-200 ease-in-out"
-              title="Cart"
-            >
-              <Image
-                src="/shopping-cart-icon.svg" // Replace with the path to your cart icon
-                alt="Cart Icon"
-                width={24}
-                height={24}
-                className="hover:scale-105 transition-transform duration-200 ease-in-out"
-              />
-            </div>
-          </Link>
+            <Link href="/cart" onClick={closeMenu}>
+              <div
+                className="w-12 h-12 bg-emerald-500 rounded-full flex items-center justify-center shadow-md hover:shadow-lg hover:translate-y-[-2px] transition-transform duration-200 ease-in-out"
+                title="Cart"
+              >
+                <Image
+                  src="/shopping-cart-icon.svg"
+                  alt="Cart Icon"
+                  width={24}
+                  height={24}
+                  className="hover:scale-105 transition-transform duration-200 ease-in-out"
+                />
+              </div>
+            </Link>
             <UserButton afterSignOutUrl="/" />
           </SignedIn>
         </nav>
@@ -114,7 +108,7 @@ const Header = () => {
       <div className="hidden sm:flex space-x-4 absolute top-4 right-6">
         <SignedOut>
           <SignInButton mode="modal">
-            <button className="px-6 py-2 bg-[#0f2310] text-white font-medium rounded-full shadow hover:bg-black transition">
+            <button className="px-6 py-2 bg-[#142c15] text-white font-medium rounded-full shadow hover:bg-black transition">
               Sign In
             </button>
           </SignInButton>
@@ -131,7 +125,7 @@ const Header = () => {
               title="Cart"
             >
               <Image
-                src="/shopping-cart-icon.svg" // Replace with the path to your cart icon
+                src="/shopping-cart-icon.svg"
                 alt="Cart Icon"
                 width={24}
                 height={24}
@@ -139,7 +133,6 @@ const Header = () => {
               />
             </div>
           </Link>
-
           <UserButton afterSignOutUrl="/" />
         </SignedIn>
       </div>

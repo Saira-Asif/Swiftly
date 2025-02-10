@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -7,7 +8,7 @@ const Footer = () => {
         {/* Left Side: Logo */}
         <div className="mb-4 md:mb-0">
           <Image
-            src="/Swiftly_Logo_white.png" 
+            src="/Swiftly_Logo_white.png"
             alt="Logo"
             width={150}
             height={150}
@@ -21,24 +22,32 @@ const Footer = () => {
             <ul>
               <h3 className="text-lg font-semibold mb-6">User Area</h3>
               <li>
-                <button className="text-sm text-gray-400 hover:text-white mb-4">
-                  My Account
-                </button>
+                <Link href="../userArea/my-account">
+                  <button className="text-sm text-gray-400 hover:text-white mb-4">
+                    My Account
+                  </button>
+                </Link>
               </li>
               <li>
-                <button className="text-sm text-gray-400 hover:text-white mb-4">
-                  My Cart
-                </button>
+                <Link href="../userArea/cart">
+                  <button className="text-sm text-gray-400 hover:text-white mb-4">
+                    My Cart
+                  </button>
+                </Link>
               </li>
               <li>
-                <button className="text-sm text-gray-400 hover:text-white mb-4">
-                  Login
-                </button>
+                <Link href="../userArea/login">
+                  <button className="text-sm text-gray-400 hover:text-white mb-4">
+                    Login
+                  </button>
+                </Link>
               </li>
               <li>
-                <button className="text-sm text-gray-400 hover:text-white mb-4">
-                  Checkout
-                </button>
+                <Link href="../userArea/checkout">
+                  <button className="text-sm text-gray-400 hover:text-white mb-4">
+                    Checkout
+                  </button>
+                </Link>
               </li>
             </ul>
           </div>
@@ -48,24 +57,32 @@ const Footer = () => {
             <ul>
               <h3 className="text-lg font-semibold mb-6">Shopping Guide</h3>
               <li>
-                <button className="text-sm text-gray-400 hover:text-white mb-4">
-                  Payment
-                </button>
+                <Link href="../shoppingGuide/payment">
+                  <button className="text-sm text-gray-400 hover:text-white mb-4">
+                    Payment
+                  </button>
+                </Link>
               </li>
               <li>
-                <button className="text-sm text-gray-400 hover:text-white mb-4">
-                  Shipment
-                </button>
+                <Link href="../shoppingGuide/shipment">
+                  <button className="text-sm text-gray-400 hover:text-white mb-4">
+                    Shipment
+                  </button>
+                </Link>
               </li>
               <li>
-                <button className="text-sm text-gray-400 hover:text-white mb-4">
-                  FAQ
-                </button>
+                <Link href="../shoppingGuide/faq">
+                  <button className="text-sm text-gray-400 hover:text-white mb-4">
+                    FAQ
+                  </button>
+                </Link>
               </li>
               <li>
-                <button className="text-sm text-gray-400 hover:text-white mb-4">
-                  Return Policy
-                </button>
+                <Link href="../shoppingGuide/return-policy">
+                  <button className="text-sm text-gray-400 hover:text-white mb-4">
+                    Return Policy
+                  </button>
+                </Link>
               </li>
             </ul>
           </div>
@@ -75,19 +92,25 @@ const Footer = () => {
             <ul>
               <h3 className="text-lg font-semibold mb-6">Services</h3>
               <li>
-                <button className="text-sm text-gray-400 hover:text-white mb-4">
-                  Grocery Delivery
-                </button>
+                <Link href="/supportPage">
+                  <button className="text-sm text-gray-400 hover:text-white mb-4">
+                    Contact Support
+                  </button>
+                </Link>
               </li>
               <li>
-                <button className="text-sm text-gray-400 hover:text-white mb-4">
-                  Business Accounts
-                </button>
+                <Link href="/coming-soon">
+                  <button className="text-sm text-gray-400 hover:text-white mb-4">
+                    Business Accounts
+                  </button>
+                </Link>
               </li>
               <li>
-                <button className="text-sm text-gray-400 hover:text-white mb-4">
-                  Rider Opportunities
-                </button>
+                <Link href="/coming-soon">
+                  <button className="text-sm text-gray-400 hover:text-white mb-4">
+                    Rider Opportunities
+                  </button>
+                </Link>
               </li>
             </ul>
           </div>

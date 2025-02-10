@@ -14,12 +14,14 @@ export default function RootLayout({
     <html lang="en">
       <Head>
         {/* Add the favicon */}
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" className="w-28 h-28"/>
         <title>Swiftly - Your Grocery Companion</title> 
       </Head>
       <body>
         <Header />
-        {children}
+        <main className="pt-[100px]"> 
+            {children}
+          </main>
         <Footer />
       </body>
     </html>
